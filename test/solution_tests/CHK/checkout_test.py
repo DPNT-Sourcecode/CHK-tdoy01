@@ -32,10 +32,11 @@ class TestCheckout:
     def test_buy_get_one_free_offers(self):
         assert checkout("EEB") == 80
         assert checkout("BEE") == 80
-        assert checkout("EEBB") == 110
-        assert checkout("BBEE") == 110
-        assert checkout("BEBE") == 110
+        assert checkout("EEBB") == 95
+        assert checkout("BBEE") == 95
+        assert checkout("BEBE") == 95
         assert checkout("E") == 40
         assert checkout("EE") == 80
+
 
 

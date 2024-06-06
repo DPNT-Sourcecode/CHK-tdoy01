@@ -64,7 +64,6 @@ def checkout(skus: str) -> int:
             discount = number_of_free_items * price_table.get(free_item_sku)
             total -= discount
 
-
     return total
 
 
