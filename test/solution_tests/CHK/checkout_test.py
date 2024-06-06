@@ -37,6 +37,11 @@ class TestCheckout:
         assert checkout("BEBE") == 95
         assert checkout("E") == 40
         assert checkout("EE") == 80
+        assert checkout("EEEEBB") == 160
+
+# - {"method":"checkout","params":["EEEEBB"],"id":"CHK_R2_026"}, expected: 160, got: 145
+#  - {"method":"checkout","params":["BEBEEE"],"id":"CHK_R2_027"}, expected: 160, got: 145
+#  - {"method":"checkout","params":["ABCDEABCDE"],"id":"CHK_R2_038"}, expected: 280, got: 265
 
 
 
