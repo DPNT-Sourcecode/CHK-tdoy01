@@ -7,7 +7,7 @@ class TestCheckout:
         assert checkout("A C") == 70
         assert checkout("A B C D") == 115
 
-    def test_one_special_offers(self):
+    def test_x_for_y_offers(self):
         assert checkout("A A A") == 130
         assert checkout("A A A A") == 180
         assert checkout("B B") == 45
@@ -29,6 +29,9 @@ class TestCheckout:
         assert checkout("ABCD") == 115
         assert checkout("AA") == 100
 
-    # def test_buy_get_one_free(self):
-    #     assert checkout("AAAAA") == 200
+    def test_buy_get_one_free_offers(self):
+        assert checkout("EEB") == 80
+        assert checkout("EEBB") == 110
+
+
 
