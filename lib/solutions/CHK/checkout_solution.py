@@ -6,7 +6,7 @@ special_offers: dict[str, tuple] = {"A": (3, 30), "B": (2, 15)}
 
 
 def checkout(skus: str) -> int:
-    skus = skus.split(" ")
+    skus = skus.replace(" ", "")
     total = 0
     sku_count = {}
     for sku in skus:
@@ -25,6 +25,7 @@ def checkout(skus: str) -> int:
 
         total += item_price
     return total
+
 
 
 

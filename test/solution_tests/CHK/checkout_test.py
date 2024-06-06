@@ -19,3 +19,9 @@ class TestCheckout:
     def test_return_negative_one_when_unable_to_find_item(self):
         assert checkout("E") == -1
 
+    def test_failed_trials(self):
+        assert checkout("") == 0
+        assert checkout("ABCD") == 115
+        assert checkout("AA") == 100
+
+
