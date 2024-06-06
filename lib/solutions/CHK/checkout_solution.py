@@ -20,10 +20,11 @@ def checkout(skus: str) -> int:
             return -1
 
         if sku in special_offers:
-            if sku_count.get(sku) % special_offers.get(sku).index(0) == 0:
-                item_price = special_offers.get(sku).index(1)
+            if sku_count.get(sku) % special_offers.get(sku)[0] == 0:
+                item_price = special_offers.get(sku)[1]
 
         total += item_price
     return total
+
 
 

@@ -13,6 +13,9 @@ class TestCheckout:
         assert checkout("A A A A A") == 230
         assert checkout("A A A A A A") == 260
         assert checkout("B B") == 45
+        assert checkout("B A B A B") == 175
+        assert checkout("B A B A B D") == 190
 
     def test_return_negative_one_when_unable_to_find_item(self):
         assert checkout("E") == -1
+
