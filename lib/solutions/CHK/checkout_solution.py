@@ -46,16 +46,25 @@ def checkout(skus: str) -> int:
         total += item_price * count
 
         if sku in special_offers:
-            total = apply_discounts(count, sku, total)
+            current_discount_index = 0
+
+            special_offers.get(sku)
+            number_of_discounts_to_apply = count // special_offers.get(sku)[current_discount_index][0]
+            remaining_count = count % special_offers.get(sku)[current_discount_index][0]
+            if number_of_discounts_to_apply > 0:
+                discount = special_offers.get(sku)[1] * number_of_discounts_to_apply
+                total -= discount
 
     return total
 
 
 def apply_discounts(count: int, sku: str, total: int) -> int:
-    number_of_discounts_to_apply = count // special_offers.get(sku)[0][0]
+    current_discount_index = 0
+    number_of_discounts_to_apply = count // special_offers.get(sku)[current_discount_index][0]
     if number_of_discounts_to_apply > 0:
         discount = special_offers.get(sku)[1] * number_of_discounts_to_apply
         total -= discount
     return total
+
 
 
