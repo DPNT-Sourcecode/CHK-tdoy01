@@ -9,7 +9,13 @@ class TestSum():
 
 # test sum with a negative integer returns an error
     def test_sum_negative_integer_returns_an_error(self):
-        pytest.raises()
-# test sum at the boundary of 0 and 100
+        with pytest.raises(Exception) as e_info:
+            sum_solution.compute(-100, -100)
+
+    def test_sum_integer_greater_than_zero_raises_exception(self):
+        with pytest.raises(Exception) as e_info:
+            sum_solution.compute(101, 101)
+
+
 
 
