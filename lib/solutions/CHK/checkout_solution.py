@@ -4,7 +4,7 @@ import abc
 import functools
 
 price_table: dict[str, int] = {"A": 50, "B": 30, "C": 20, "D": 15}
-special_offers: dict[str, list[tuple]] = {"A": [(5, 50), (3, 20)], "B": [(2, 15)]}
+special_offers: dict[str, list[tuple]] = {"A": [(5, 50), (3, 20)], "B": [(2, 15)], "E": []}
 
 
 # class SpecialOffer(abc.ABC):
@@ -28,7 +28,7 @@ special_offers: dict[str, list[tuple]] = {"A": [(5, 50), (3, 20)], "B": [(2, 15)
 
 
 def checkout(skus: str) -> int:
-    skus = skus.replace(" ", "")
+    skus = sorted(skus.replace(" ", ""))
     total = 0
     sku_count = {}
     # count skus
@@ -58,13 +58,6 @@ def checkout(skus: str) -> int:
     return total
 
 
-def apply_discounts(count: int, sku: str, total: int) -> int:
-    current_discount_index = 0
-    number_of_discounts_to_apply = count // special_offers.get(sku)[current_discount_index][0]
-    if number_of_discounts_to_apply > 0:
-        discount = special_offers.get(sku)[1] * number_of_discounts_to_apply
-        total -= discount
-    return total
 
 
 
