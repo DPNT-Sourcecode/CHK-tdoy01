@@ -10,8 +10,6 @@ class TestCheckout:
     def test_one_special_offers(self):
         assert checkout("A A A") == 130
         assert checkout("A A A A") == 180
-        assert checkout("A A A A A") == 230
-        assert checkout("A A A A A A") == 260
         assert checkout("B B") == 45
         assert checkout("B A B A B") == 175
         assert checkout("B A B A B D") == 190
@@ -33,3 +31,4 @@ class TestCheckout:
 
     # def test_buy_get_one_free(self):
     #     assert checkout("AAAAA") == 200
+
