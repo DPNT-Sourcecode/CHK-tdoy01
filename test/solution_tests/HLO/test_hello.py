@@ -7,4 +7,3 @@ class TestHello:
 
     def test_hello_friend_name(self):
         assert hello("John") == "Hello, John!"
-

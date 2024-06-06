@@ -3,7 +3,8 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-price_table: dict = {"A": 50, "B": 30, "C": 20, "D": 15}
+price_table: dict[str, int] = {"A": 50, "B": 30, "C": 20, "D": 15}
+special_offers: dict[str, tuple] = {"A": (3, 130), "B": (2, 45)}
 
 def checkout(skus: str) -> int:
     skus = skus.split(" ")
@@ -14,5 +15,3 @@ def checkout(skus: str) -> int:
             return -1
         total += item_price
     return total
-
-
