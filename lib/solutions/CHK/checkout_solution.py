@@ -46,11 +46,13 @@ def checkout(skus: str) -> int:
         total += item_price * count
 
         if sku in special_offers:
-            if count % special_offers.get(sku)[0] == 0:
-                discount = special_offers.get(sku)[1]
+            number_of_discounts_to_apply = count // special_offers.get(sku)[0]
+            if number_of_discounts_to_apply > 0:
+                discount = special_offers.get(sku)[1] * number_of_discounts_to_apply
                 total -= discount
 
     return total
+
 
 
 
