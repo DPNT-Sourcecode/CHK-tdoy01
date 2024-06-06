@@ -65,6 +65,3 @@ def checkout(skus: str) -> int:
             total -= discount
 
     return total
-
-
-
