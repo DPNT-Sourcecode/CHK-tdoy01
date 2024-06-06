@@ -1,8 +1,20 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
+import abc
 
 price_table: dict[str, int] = {"A": 50, "B": 30, "C": 20, "D": 15}
 special_offers: dict[str, tuple] = {"A": (3, 30), "B": (2, 15)}
+
+class SpecialOffer(abc.ABCMeta):
+
+    @abc.abstractmethod
+    def apply_offer(self):
+        pass
+
+class XForYOffer(SpecialOffer):
+
+    def apply_offer(self):
+        return 0
 
 
 def checkout(skus: str) -> int:
@@ -25,3 +37,4 @@ def checkout(skus: str) -> int:
 
         total += item_price
     return total
+
