@@ -3,7 +3,7 @@
 import abc
 
 price_table: dict[str, int] = {"A": 50, "B": 30, "C": 20, "D": 15}
-special_offers: dict[str, tuple] = {"A": (3, 30), "B": (2, 15)}
+special_offers: dict[str, tuple] = {"A": (3, 20), "B": (2, 15)}
 
 
 # class SpecialOffer(abc.ABC):
@@ -43,13 +43,15 @@ def checkout(skus: str) -> int:
         if item_price is None:
             return -1
 
+        total += item_price * count
+
         if sku in special_offers:
             if count % special_offers.get(sku)[0] == 0:
-                item_price = special_offers.get(sku)[1]
-
-        total += item_price
+                discount = special_offers.get(sku)[1]
+                total -= discount
 
     return total
+
 
 
 
