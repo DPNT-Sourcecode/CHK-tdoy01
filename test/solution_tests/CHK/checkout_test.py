@@ -33,4 +33,3 @@ class TestCheckout:
 
     # def test_buy_get_one_free(self):
     #     assert checkout("AAAAA") == 200
-

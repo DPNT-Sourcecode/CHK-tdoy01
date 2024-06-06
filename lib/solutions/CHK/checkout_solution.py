@@ -3,7 +3,7 @@
 import abc
 
 price_table: dict[str, int] = {"A": 50, "B": 30, "C": 20, "D": 15}
-special_offers: dict[str, dict[int, int]] = {"A": {3: 20, 5: ), "B": (2, 15)}
+special_offers: dict[str, dict[int, int]] = {"A": {3: 20, 5: 40}, "B": {2: 15}}
 
 
 # class SpecialOffer(abc.ABC):
@@ -52,9 +52,3 @@ def checkout(skus: str) -> int:
                 total -= discount
 
     return total
-
-
-
-
-
-
