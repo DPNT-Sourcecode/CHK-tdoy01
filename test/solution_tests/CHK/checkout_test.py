@@ -36,6 +36,3 @@ class TestCheckout:
         assert checkout("BBEE") == 110
         assert checkout("BEBE") == 110
 
-
-
-
