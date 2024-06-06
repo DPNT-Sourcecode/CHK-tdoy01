@@ -2,7 +2,7 @@
 # skus = unicode string
 
 price_table: dict[str, int] = {"A": 50, "B": 30, "C": 20, "D": 15}
-special_offers: dict[str, tuple] = {"A": (3, 130), "B": (2, 45)}
+special_offers: dict[str, tuple] = {"A": (3, 30), "B": (2, 15)}
 
 
 def checkout(skus: str) -> int:
@@ -14,11 +14,16 @@ def checkout(skus: str) -> int:
             sku_count.update({sku: 1})
         else:
             sku_count.update({sku: sku_count.get(sku) + 1})
-        sku_count.update({})
 
         item_price = price_table.get(sku, None)
         if item_price is None:
             return -1
+
+        if sku in special_offers:
+            if sku_count.get(sku) % special_offers.get(sku).index(0) == 0:
+                item_price = special_offers.get(sku).index(1)
+
         total += item_price
     return total
+
 
